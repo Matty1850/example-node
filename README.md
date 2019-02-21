@@ -1,9 +1,9 @@
-develop# Getting Started Building and Deploying with Distelli - NodeJS Example
+develop# Getting Started Building and Deploying with Puppet Pipelines - NodeJS Example
 
-This tutorial will get you setup, building, testing, and deploying an application with Distelli in minutes. 
+This tutorial will get you setup, building, testing, and deploying an application with Pipelines in minutes. 
 
 The tutorial assumes you have already: 
-* [Created a free Distelli account](https://www.distelli.com/signup)
+* [Created a free Pipelines account](https://pipelines.puppet.com)
 * Have a login to, at least, one of the two public repositories.
  - <a href="https://github.com/" target="_blank">https://github.com/</a>
  - <a href="https://bitbucket.org/" target="_blank">https://bitbucket.org/</a>
@@ -16,7 +16,7 @@ To enable auto deployment of an application you must have a destination server t
 
 If you don't have a server you can use a virtual server. For a simple guide to setting up a virtual server using Virtualbox and Vagrant see [Building Virtual Servers](http://docs.distelli.com/docs/building-virtual-servers).
 
-You must install the Distelli agent on the server to facilitate deployments. Instructions on installing the Distelli agent can be found here <a href="http://docs.distelli.com/docs/distelli-agent" target="_blank">Distelli agent reference guide.</a>
+You must install the Pipelines agent on the server to facilitate deployments. Instructions on installing the agent can be found here <a href="http://docs.distelli.com/docs/distelli-agent" target="_blank">Distelli agent reference guide.</a>
 
 Install the agent and return to this document.   
 
@@ -61,17 +61,17 @@ cd nodejsbuilddeploy
 git clone git@github.com:YOUR_GITHUB_USERNAME/nodejsbuilddeploy.git
 ```
 
-### <a name="step-3-edit-the-distelli-manifest"></a>Step 3. Edit the Distelli Manifest
+### <a name="step-3-edit-the-distelli-manifest"></a>Step 3. Edit the Pipelines Manifest
 
-The Distelli Manifest file provides the Distelli Platform with the needed information to successfully build and deploy your application. This file must exist before building your application with Distelli.
+The Pipelines Manifest file provides the Pipelines Platform with the needed information to successfully build and deploy your application. This file must exist before building your application with Pipelines.
 
-The sample application you cloned will already have an existing `distelli-manifest.yml` file in the application root directory. You will need to make a small change to this file before you can build and deploy the application with Distelli.
+The sample application you cloned will already have an existing `Pipelines-manifest.yml` file in the application root directory. You will need to make a small change to this file before you can build and deploy the application with Pipelines.
 
 Edit the `distelli-manifest.yml` file. 
 
 On the first line you will see a &lt;username&gt; placeholder, and then the name of the sample application.
 
-Replace the &lt;username&gt; placeholder with your Distelli username.  To find your Distelli username see [Finding Your Distelli Username](http://docs.distelli.com/docs/finding-your-distelli-username).
+Replace the &lt;username&gt; placeholder with your Pipelines username.  To find your Pipelines username see [Finding Your Distelli Username](http://docs.distelli.com/docs/finding-your-distelli-username).
 
 For example if your username is 'YourUserName' your `distelli-manifest.yml` should look like this:
 
@@ -108,7 +108,7 @@ YourUserName/nodejsbuilddeploy:
 
 ### Step 4. Create the Application
 
-In this step you will use the Distelli *new application workflow* to create an application that is integrated with the repository you forked above.
+In this step you will use the Pipelines *new application workflow* to create an application that is integrated with the repository you forked above.
 
 To complete this section you will navigate to another set of instructions. There you will walk through those instructions, afterwards returning here.
 
@@ -124,13 +124,13 @@ Certain fields will need tutorial specific information. The table below has that
 
 > After completing the **Tutorial Creating an Application from a Repository** return to this tutorial document.
 
-Navigate to <a href="http://docs.distelli.com/docs/tutorial-creating-an-application-from-a-repository" target="_blank">Tutorial Creating an Application from a Repository</a>, follow the steps in the document, and then return here.
+Navigate to <a href="http://docs.Pipelines.com/docs/tutorial-creating-an-application-from-a-repository" target="_blank">Tutorial Creating an Application from a Repository</a>, follow the steps in the document, and then return here.
 
 > Return here!
 
 ### Step 5. Enable Auto Build
 
-1. In the Distelli WebUI click **Applications** at the top.
+1. In the Pipelines WebUI click **Applications** at the top.
 2. In the application list click **nodejsbuilddeploy** name to navigate to the application page.
 3. Click the **Settings** link.
 
@@ -147,7 +147,7 @@ You have enabled auto build.
 
 ### Step 6. Enable Auto Deploy
 
-1. In the Distelli WebUI click the **Applications** link at the top.
+1. In the Pipelines WebUI click the **Applications** link at the top.
 2. In the application list click **nodejsbuilddeploy** name to navigate to the application page.
 3. Click the **Settings** link.
 
@@ -167,7 +167,7 @@ In the last step you enabled auto deploy for the application environment, but th
 
 In this step you will add the server, from step 1, to the -beta environment.
 
-1. In the Distelli WebUI click the **Applications** link at the top.
+1. In the Pipelines WebUI click the **Applications** link at the top.
 2. In the application list click **nodejsbuilddeploy** name to navigate to the application page.
 3. Click the **Environments** link.
 4. Click the **nodejsbuilddeploy-beta** environment.
@@ -188,9 +188,9 @@ You have added a server to the environment.
 
 In a previous step you edited and saved the distelli-manifest.yml file in the nodejsbuilddeploy application directory. This constitutes a code change. You will now commit and push that code change up to your repository.
 
-When the repository changes it will notify Distelli that a change occurred. This will trigger a build by Distelli.
+When the repository changes it will notify Pipelines that a change occurred. This will trigger a build by Pipelines.
 
-Distelli will grab a copy of the repository; build it, test it, and if it is successful will create a release.
+Pipelines will grab a copy of the repository; build it, test it, and if it is successful will create a release.
 
 When a release is created this will trigger an auto deploy of the application to the -beta environment with the server from step 1.
 
@@ -208,7 +208,7 @@ This will push your code change up to the repository.
 
 ### <a name="step-9-watch-the-build-and-deploy-process"></a> Step 9. Watch the Build and Deploy Process
 
-1. Click the **Builds** link at the top of the Distelli WebUI.
+1. Click the **Builds** link at the top of the Pipelines WebUI.
 
     In the builds list page you will see your build queued or in progress
 
@@ -224,13 +224,13 @@ To verify the application deployed correctly point your web browser to your dest
 http://YOUR_SERVER_IP:3000
 ```
 
-### Understanding the Distelli Manifest
+### Understanding the Pipelines Manifest
 
 The distelli-manifest.yml provides the instructions for building, testing, and deploying the application.
 
 ![alt text](https://www.filepicker.io/api/file/pcRR6Ie5RJeeeX77dOng "nodejs-manifest-analysis.png")
 
-For more information on the Distelli manifest see [Distelli Manifest](http://docs.distelli.com/docs/distelli-manifest).
+For more information on the Pipelines manifest see [Distelli Manifest](http://docs.distelli.com/docs/distelli-manifest).
 
 ### <a name="troubleshooting"></a> Troubleshooting
 
